@@ -1,0 +1,6 @@
+Linux
+Unix
+Android
+Windows
+Symbian
+Solaris
