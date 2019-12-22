@@ -10,12 +10,18 @@ int main(int argc, char* argv[]){
         printf("This is the help page.\n");
         exit(0);
     }
-    FILE* fp = fopen(argv[1],"r");
-    if(fp == NULL){
-        perror("Error in opening file.\n");
-        exit(1);
+    FILE* fp;
+    int i = 1;
+    while(i < argc){
+        fp = fopen(argv[i],"r");
+        if(fp == NULL){
+            perror("Error in opening file.\n");
+            exit(1);
+        }
+        display(fp);
+        fclose(fp);
+        i++;
     }
-    display(fp);
     return 0;
 }
 
