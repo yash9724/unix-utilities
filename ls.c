@@ -8,11 +8,14 @@ void do_ls(char*);
 
 extern int errno;
 int main(int argc, char **argv){
-    if(argc != 2){
-        printf("\nEnter exactly one directory name.");
-        exit(1);
+   if(argc == 1)
+        do_ls("./");
+    else{
+        for(int i = 1 ; i < argc; i++){
+            printf("%s:\n\n", argv[i]);
+            do_ls(argv[i]);
+        }
     }
-    do_ls(argv[1]);
     return 0;
 }
 
