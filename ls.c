@@ -31,8 +31,11 @@ void do_ls(char *dirpath){
         if(entry == NULL && errno != 0){
             perror("readdir failed");
             exit(errno);
-        }else
+        }else{
+            if(entry->d_name[0] == '.')
+                continue;
             printf("%s\n",entry->d_name);
+        }
     }
 
     closedir(dirp);
